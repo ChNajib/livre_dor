@@ -55,7 +55,7 @@ def delete_message(request, message_id):
     is_staff = False
     if request.user.is_staff:
         is_staff = True
-    if msg.user == request.user :
+    if msg.user == request.user or request.user.is_staff:
         msg.delete()
         # return render(request, 'home/index.html',{'all_messages':all_messages})
     context ={'all_messages': all_messages,

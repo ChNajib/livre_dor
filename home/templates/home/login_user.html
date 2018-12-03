@@ -2,12 +2,9 @@
 {% load staticfiles %}
 {% block title %} Log In {% endblock %}
 {% block body %}
-<div class="my-log-container my-container">
+<div class="container my-container mybg" style="max-width:350px;">
 
-    <div class="myrow">
-        <div class="col-sm-12 col-md-6">
             <div class="panel panel-default">
-                <div class="panel-body">
                    <div class="mycontainer mybg">
                     <h3>Log In</h3>
                     {% if error_message %}
@@ -47,9 +44,6 @@
                 </div>
 
             </div>
-        </div>
 
-</div>
-</div>
 
 {% endblock %}
