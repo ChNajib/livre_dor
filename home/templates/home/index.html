@@ -1,0 +1,35 @@
+<!-- include the base html file -->
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+{%block title %} home {%endblock%}
+{% block body %}
+
+{% if all_messages %}
+<div class="container">
+    <h3></h3>
+
+            <div id="accordion" class="mycontainer mybg">
+{%for message in all_messages%}
+                &nbsp;
+                <div class="card">
+                  <div class="card-body cardbg">
+
+                      <h4 class="card-title">{{message.title}}{% if message.user == current_user or is_staff %}
+                      <a style="margin-left: 450px;" href="{% url 'delete_message' message.id %}"><span class="fa fa-trash mytrash" aria-hidden="true"></span></a>
+                          {%endif%}</h4>
+                    <p class="card-text text-center">{{message.content}}</p>
+                      <p class="card-text" style="color : #c1c1c1;">Posted {{message.date}}<mark style="color : #a57c68;"> By {{message.user.username}}</mark></p>
+                  </div>
+                </div>
+{% endfor %}
+                &nbsp;
+            </div>
+
+
+
+
+{% else %}
+<h3> NO MESSAGES </h3>
+{% endif %}
+</div>
+{% endblock %}

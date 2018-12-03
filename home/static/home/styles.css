@@ -1,0 +1,95 @@
+body{
+background : white url("gold.jpg");
+  height: 100%;
+  background-size: cover;
+  background-color: transparent;
+
+}
+.mybg{
+background : #d3cb80;/*#b38825;#feed6b;*/
+}
+a:hover{
+    text-decoration: none;
+
+}
+.cardbg{
+background : #fffde4;
+}
+
+
+.mytrash{
+color : #b7904b;
+position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+.navbar-brand {
+    font-family: 'Satisfy', cursive;
+    color : #937d41;
+    font-size: 1.75rem;
+}
+.myrow{
+margin-left: 60px;
+}
+.my-msg-container{
+    width: 30%;
+    padding-left: 15px;
+
+}
+
+.my-reg-container{
+    width: 35%;
+    padding-left: 15px;
+
+}
+
+.my-log-container{
+    width: 100%;
+    padding-left: 400px;
+
+
+}
+
+.my-container{
+
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    border-radius : 7px
+}
+
+.mylink{
+    color : #937d41;
+
+}
+.navbar{
+box-shadow: 3px 3px 2px #dbb13b;
+}
+.card{
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.32)!important;
+    }
+
+.card-title{
+color : #b7904b;
+}
+
+.mycontainer {
+    width: 60%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    border-radius : 7px
+
+}
+
+#footer p {
+    margin-top: 2px;
+    text-align: center;
+    font-size: 12px;
+    color: #5b5b5b;
+}

@@ -1,0 +1,41 @@
+{% extends 'home/base_visitor.html' %}
+{% load staticfiles %}
+{% block title %} Register {% endblock %}
+{% block body %}
+<div class="my-reg-container my-container mybg">
+
+
+    <div class="myrow">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-left:60px;">Register</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        <div class="mycontainer mybg">
+
+                        {% csrf_token %}
+                        {% include 'home/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success" >Submit</button>
+                            </div>
+                        </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div style="margin-left:60px;width:170%;" class="panel-footer">
+                    Already have an account? <a href="{% url 'login_user' %}">Click here</a> to log in.
+                </div>
+                                            &nbsp;
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

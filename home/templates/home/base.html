@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'home/styles.css'%}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>{% block title %}Livre d'OR{% endblock %}</title>
+</head>
+<body>
+    <nav class="navbar navbar-default mybg">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'index' %}">Livre d'Or</a>
+        </div>
+
+        <!--<div class="collapse navbar-collapse" id="topNavBar">-->
+            <div class="navbar-nav">
+
+                <ul class="nav">
+                    <li>
+                        <a class="mylink" href="{% url 'create_message' %}">
+                            <span class="fa fa-plus" aria-hidden="true"></span> Message
+                        </a>
+                    </li>
+                    &nbsp;
+                    &nbsp;
+                    {% ifequal user_is_in TRUE %}
+                    <li>
+                        <a class="mylink" href="{% url 'logout_user' %}">
+                            <span class="fa fa-sign-out" aria-hidden="true"></span> Logout
+                        </a>
+                    </li>
+                    {%else%}
+                    <li>
+                        <a class="mylink" href="{% url 'login_user' %}">
+                            <span class="fa fa-sign-in" aria-hidden="true"></span> Login
+                        </a>
+                    </li>
+                    {%endifequal%}
+
+
+                </ul>
+
+
+            </div>
+            <!---->
+       <!-- </div>-->
+
+    </div>
+
+</nav>
+{% block body %}
+{% endblock %}
+    <div id="footer">
+        <p>© 2018 NajibCh, All Rights Reserved.</p>
+    </div>
+</body>
+</html>
