@@ -9,6 +9,12 @@ import sib_sdk
 import sib_api_v3_sdk
 import sib_api_v3_sdk.models.send_template_email
 
+def send_to(email,template_id):
+    send_email = sib_api_v3_sdk.SendEmail([email])
+    configuration = sib_api_v3_sdk.Configuration()
+    api_instance = sib_api_v3_sdk.SMTPApi(sib_api_v3_sdk.ApiClient(configuration))
+    api_instance.send_template(template_id, send_email)
+
 
 ##########  REDIRECTING TO HOME PAGE ##########
 
@@ -28,21 +34,21 @@ def index(request):
 
 ##########  CREATING NEW MESSAGES ##########
 
+
 def create_message(request):
     if not request.user.is_authenticated():
         return render(request, 'home/login_user.html')
     else:
         form = MessageForm(request.POST or None)
+        if request.user.is_staff:
+            is_staff = True
         if form.is_valid():
             message = form.save(commit=False)
             message.user = request.user
             message.date = datetime.datetime.now().strftime('%d %b %H:%M')
             message.save()
-            send_email = sib_api_v3_sdk.SendEmail([message.user.email])
-            configuration = sib_api_v3_sdk.Configuration()
-            api_instance = sib_api_v3_sdk.SMTPApi(sib_api_v3_sdk.ApiClient(configuration))
-            api_instance.send_template(2,send_email)
-            return render(request, 'home/index.html', {'all_messages': Message.objects.all(),'current_user': request.user})
+            send_to(message.user.email,2)
+            return render(request, 'home/index.html', {'all_messages': Message.objects.all(),'current_user': request.user,'is_staff':is_staff})
         return render(request, 'home/message_form.html', {'form': form})
 
 
@@ -52,12 +58,13 @@ def delete_message(request, message_id):
     msg = Message.objects.get(pk=message_id)
     user_messages = Message.objects.filter(user=request.user)
     all_messages = Message.objects.all()
+    users_email = request.user.email
     is_staff = False
     if request.user.is_staff:
         is_staff = True
     if msg.user == request.user or request.user.is_staff:
         msg.delete()
-        # return render(request, 'home/index.html',{'all_messages':all_messages})
+        send_to(users_email,5)
     context ={'all_messages': all_messages,
               'current_user': request.user,
               'user_messages' : user_messages,
