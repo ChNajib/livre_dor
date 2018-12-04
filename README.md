@@ -7,7 +7,7 @@
 
 **Tha admin is allowed to delete every message , for the normal users it is resricted to their own messages**
 
-**whenever a message is created or deleted , an email is sent to the creator**
+**whenever a message is created or deleted , an email is sent to the creator ( using Sendinblue API v3 )**
 
 ![home HomePage](https://github.com/ChNajib/livre_dor/blob/master/Capture1.PNG)
 
