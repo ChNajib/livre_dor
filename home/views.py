@@ -40,6 +40,7 @@ def create_message(request):
         return render(request, 'home/login_user.html')
     else:
         form = MessageForm(request.POST or None)
+        is_staff = False
         if request.user.is_staff:
             is_staff = True
         if form.is_valid():
