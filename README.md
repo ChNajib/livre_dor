@@ -1,19 +1,45 @@
-# livre_dor
+* **Python 2.7.x**
+* **Django 1.11**
+* **Bootstrap 4.0**
+* **SendInBlue V3**
+* **Sentry**
 
-## It is a guests book that allows you to leave messages
+**1. Installation**
 
-**It is very simple to do so by clicking on the "message" link**
-![Add AddMsgPage](https://github.com/ChNajib/livre_dor/blob/master/Capture2.PNG)
+**Django 1.11**
 
-**Tha admin is allowed to delete every message , for the normal users it is resricted to their own messages**
+`$ pip install Django==1.11`
 
-**whenever a message is created or deleted , an email is sent to the creator ( using Sendinblue API v3 )**
+`$ django-admin startproject mysite`
 
-![home HomePage](https://github.com/ChNajib/livre_dor/blob/master/Capture1.PNG)
+**2. Le serveur de développement**
 
-**you can not seen the list of messages if you are not logged in**
+`$ python manage.py runserver`
 
-![Login LoginPage](https://github.com/ChNajib/livre_dor/blob/master/Capture3.PNG)
+**Famework Bootstrap 4.0**
 
-**if you dont have an account , you can create one following these very simple steps**
-![Reg RegisterPage](https://github.com/ChNajib/livre_dor/blob/master/Capture4.PNG)
+```html
+<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"/>
+```
+
+
+**Sendinblue v3**
+
+La documentation complète pour l’installation et l’utilisation
+https://github.com/sendinblue/APIv3-python-library/
+
+
+
+**Sentry**
+
+`$pip install raven`
+open settings.py
+
+include the below lines in settings.py
+
+```python
+RAVEN_CONFIG = {'dsn': '<your-dsn-here>',}
+INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
+```
+
