@@ -1,4 +1,4 @@
-certifi==2018.11.29
+certifi==2022.12.7
 contextlib2==0.5.5
 django==1.11
 python-dateutil==2.7.5
